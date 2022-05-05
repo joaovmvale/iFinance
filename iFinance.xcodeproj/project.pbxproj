@@ -32,6 +32,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		572DB42E28234DF000FF7B19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		572DB42F28234E1D00FF7B19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57950E3528231C6900713A8E /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		572DB43028234E2400FF7B19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		57950E2728231C6900713A8E = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +73,10 @@
 		57950E3228231C6900713A8E /* iFinance */ = {
 			isa = PBXGroup;
 			children = (
+				572DB42E28234DF000FF7B19 /* Model */,
+				572DB42F28234E1D00FF7B19 /* View */,
+				572DB43028234E2400FF7B19 /* ViewModel */,
 				57950E3328231C6900713A8E /* iFinanceApp.swift */,
-				57950E3528231C6900713A8E /* ContentView.swift */,
 				57950E3728231C6B00713A8E /* Assets.xcassets */,
 				57950E3928231C6B00713A8E /* Preview Content */,
 			);
