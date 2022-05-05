@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		572DB43228234F8700FF7B19 /* DumbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43128234F8700FF7B19 /* DumbModel.swift */; };
+		572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43328234FB500FF7B19 /* DumbViewModel.swift */; };
 		57950E3428231C6900713A8E /* iFinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57950E3328231C6900713A8E /* iFinanceApp.swift */; };
 		57950E3628231C6900713A8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57950E3528231C6900713A8E /* ContentView.swift */; };
 		57950E3828231C6B00713A8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57950E3728231C6B00713A8E /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		572DB43128234F8700FF7B19 /* DumbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbModel.swift; sourceTree = "<group>"; };
+		572DB43328234FB500FF7B19 /* DumbViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbViewModel.swift; sourceTree = "<group>"; };
 		57950E3028231C6900713A8E /* iFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57950E3328231C6900713A8E /* iFinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFinanceApp.swift; sourceTree = "<group>"; };
 		57950E3528231C6900713A8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +39,7 @@
 		572DB42E28234DF000FF7B19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				572DB43128234F8700FF7B19 /* DumbModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -50,6 +55,7 @@
 		572DB43028234E2400FF7B19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				572DB43328234FB500FF7B19 /* DumbViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -162,6 +168,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				57950E3628231C6900713A8E /* ContentView.swift in Sources */,
+				572DB43228234F8700FF7B19 /* DumbModel.swift in Sources */,
+				572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */,
 				57950E3428231C6900713A8E /* iFinanceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
