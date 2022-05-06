@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570340BC2823538300D1C3E4 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570340BB2823538300D1C3E4 /* DashboardView.swift */; };
+		570DC9C22824B40C00D8289F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 570DC9C12824B40C00D8289F /* SwiftUICharts */; };
 		572DB43228234F8700FF7B19 /* DumbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43128234F8700FF7B19 /* DumbModel.swift */; };
 		572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43328234FB500FF7B19 /* DumbViewModel.swift */; };
 		57950E3428231C6900713A8E /* iFinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57950E3328231C6900713A8E /* iFinanceApp.swift */; };
@@ -16,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		570340BB2823538300D1C3E4 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		572DB43128234F8700FF7B19 /* DumbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbModel.swift; sourceTree = "<group>"; };
 		572DB43328234FB500FF7B19 /* DumbViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbViewModel.swift; sourceTree = "<group>"; };
 		57950E3028231C6900713A8E /* iFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570DC9C22824B40C00D8289F /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				57950E3528231C6900713A8E /* HomeView.swift */,
+				570340BB2823538300D1C3E4 /* DashboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +118,9 @@
 			dependencies = (
 			);
 			name = iFinance;
+			packageProductDependencies = (
+				570DC9C12824B40C00D8289F /* SwiftUICharts */,
+			);
 			productName = iFinance;
 			productReference = 57950E3028231C6900713A8E /* iFinance.app */;
 			productType = "com.apple.product-type.application";
@@ -141,6 +149,9 @@
 				Base,
 			);
 			mainGroup = 57950E2728231C6900713A8E;
+			packageReferences = (
+				570DC9C02824B40C00D8289F /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 57950E3128231C6900713A8E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,6 +180,7 @@
 			files = (
 				57950E3628231C6900713A8E /* HomeView.swift in Sources */,
 				572DB43228234F8700FF7B19 /* DumbModel.swift in Sources */,
+				570340BC2823538300D1C3E4 /* DashboardView.swift in Sources */,
 				572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */,
 				57950E3428231C6900713A8E /* iFinanceApp.swift in Sources */,
 			);
@@ -369,6 +381,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		570DC9C02824B40C00D8289F /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = "2.0.0-beta.2";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		570DC9C12824B40C00D8289F /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 570DC9C02824B40C00D8289F /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 57950E2828231C6900713A8E /* Project object */;
 }
