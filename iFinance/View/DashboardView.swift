@@ -49,21 +49,22 @@ struct DashboardView: View {
                        .chartStyle(ChartStyle(backgroundColor: .white,
                                               foregroundColor: ColorGradient(.green, .green)))
             }.overlay(
-                RoundedRectangle(cornerRadius: 3)
+                RoundedRectangle(cornerRadius: 5)
                     .stroke(Color.gray, lineWidth: 0.5)
             )
             VStack(){
                 Text("Saídas").multilineTextAlignment(.center)
                 LineChart()
                        .data(outcomes)
-                       .chartStyle(ChartStyle(backgroundColor: .white,
+                       .chartStyle(ChartStyle(backgroundColor: .white
+                                              ,
                                               foregroundColor: ColorGradient(.red, .red)))
 
             }.overlay(
-                RoundedRectangle(cornerRadius: 3)
+                RoundedRectangle(cornerRadius: 5)
                     .stroke(Color.gray, lineWidth: 0.5)
             )
-        }.padding(.all, 10).textFieldStyle(.roundedBorder)
+        }.padding(.all, 20).textFieldStyle(.roundedBorder)
     }
 }
 struct DashboardView_Previews: PreviewProvider {
