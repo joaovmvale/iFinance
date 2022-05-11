@@ -10,7 +10,8 @@ import SwiftUICharts
 
 struct DashboardView: View {
     @State var value:String = "R$4,.5678,23"
-    var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2]
+    var incomes: [Double] = [8, 2, 4, 6, 12, 9, 2]
+    var outcomes: [Double] = [10, 5, 2, 6, 23, 3]
     var body: some View {
         VStack (alignment:.center, spacing: 25.0){
             Text("Dashboard")
@@ -19,33 +20,50 @@ struct DashboardView: View {
                 .multilineTextAlignment(.center)
             HStack{
                 VStack{
-                    Text("Entradas")
-                    TextField("Entradas", text:$value)
-                    
+                    HStack{
+                        Image(systemName: "square.and.arrow.up.fill").font(.system(size: 25))
+                            .foregroundColor(.green)
+                        TextField("Entradas", text:$value)
+                    }
                 }
                 VStack{
-                    Text("Saídas")
-                    TextField("Saídas", text:$value)
+                    HStack{
+                        Image(systemName: "square.and.arrow.down.fill").font(.system(size: 25))
+                            .foregroundColor(.red)
+                        TextField("Saídas", text:$value)
+                    }
                 }
-                VStack{
-                    Text("Saldo")
+                
+            }
+            VStack{
+                HStack{
+                    Image(systemName: "dollarsign.circle.fill").font(.system(size: 25))
+                        .foregroundColor(.blue)
                     TextField("Saídas", text:$value)
                 }
             }
-            VStack{
+            VStack(){
+                Text("Entradas").multilineTextAlignment(.center)
                 LineChart()
-                       .data(demoData)
+                       .data(incomes)
                        .chartStyle(ChartStyle(backgroundColor: .white,
                                               foregroundColor: ColorGradient(.green, .green)))
-            }
-            VStack{
+            }.overlay(
+                RoundedRectangle(cornerRadius: 3)
+                    .stroke(Color.gray, lineWidth: 0.5)
+            )
+            VStack(){
+                Text("Saídas").multilineTextAlignment(.center)
                 LineChart()
-                       .data(demoData)
+                       .data(outcomes)
                        .chartStyle(ChartStyle(backgroundColor: .white,
                                               foregroundColor: ColorGradient(.red, .red)))
-            }
+
+            }.overlay(
+                RoundedRectangle(cornerRadius: 3)
+                    .stroke(Color.gray, lineWidth: 0.5)
+            )
         }.padding(.all, 10).textFieldStyle(.roundedBorder)
-       Spacer()
     }
 }
 struct DashboardView_Previews: PreviewProvider {
