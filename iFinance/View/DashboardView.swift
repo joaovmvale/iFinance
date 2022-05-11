@@ -19,28 +19,18 @@ struct DashboardView: View {
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
             HStack{
-                VStack{
-                    HStack{
-                        Image(systemName: "square.and.arrow.up.fill").font(.system(size: 25))
-                            .foregroundColor(.green)
-                        TextField("Entradas", text:$value)
-                    }
-                }
-                VStack{
-                    HStack{
-                        Image(systemName: "square.and.arrow.down.fill").font(.system(size: 25))
-                            .foregroundColor(.red)
-                        TextField("Saídas", text:$value)
-                    }
-                }
+                Image(systemName: "square.and.arrow.up.fill").font(.system(size: 25))
+                    .foregroundColor(.green)
+                TextField("Entradas", text:$value)
+                    Image(systemName: "square.and.arrow.down.fill").font(.system(size: 25))
+                        .foregroundColor(.red)
+                    TextField("Saídas", text:$value)
                 
             }
-            VStack{
-                HStack{
-                    Image(systemName: "dollarsign.circle.fill").font(.system(size: 25))
-                        .foregroundColor(.blue)
-                    TextField("Saídas", text:$value)
-                }
+            HStack{
+                Image(systemName: "dollarsign.circle.fill").font(.system(size: 25))
+                    .foregroundColor(.blue)
+                TextField("Saídas", text:$value)
             }
             VStack(){
                 Text("Entradas").multilineTextAlignment(.center)
