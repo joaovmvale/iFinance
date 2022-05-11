@@ -10,7 +10,10 @@ import SwiftUI
 struct HomeView: View {
     @State var value:String = ""
     @State private var selectedIdx = 0
-    @State private var options = ["Banco Inter", "Nubank", "Itau"]
+    @State private var options = ["Banco Inter", "Nubank", "Itau", "Nubank", "Itau"]
+    
+    func placeOrder() { }
+    func adjustOrder() { }
     
     var body: some View {
         VStack(alignment: .center) {
@@ -33,13 +36,21 @@ struct HomeView: View {
                 }
                 VStack(alignment: .leading, spacing: 2.0) {
                     Text("Conta").fontWeight(.bold)
-                    Picker(
-                        selection: $selectedIdx, label: Text("")
-                    ) {
-                        ForEach(0 ..< options.count) {
-                            Text(self.options[$0])
+                    HStack {
+                        Picker(
+                            selection: $selectedIdx, label: Text("")
+                        ) {
+                            ForEach(0 ..< options.count) {
+                                Text(self.options[$0])
+                            }
                         }
+                        .accentColor(.black)
+                        .pickerStyle(.menu)
                     }
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 1) 
+                    )
                 }
                 VStack(alignment: .leading, spacing: 2.0) {
                     Text("Categoria").fontWeight(.bold)
@@ -53,6 +64,16 @@ struct HomeView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.all, 10.0)
             Spacer()
+            VStack(alignment: .center) {
+                Menu {
+                    Button("Entrada", action: placeOrder)
+                    Button("Gastos", action: adjustOrder)
+                } label: {
+                    Label("Incluir", systemImage: "square.and.arrow.up.fill")
+                        .font(.title2)
+                }
+            }
+            Spacer()
         }
     }
 }
@@ -60,5 +81,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .previewInterfaceOrientation(.portrait)
     }
 }
