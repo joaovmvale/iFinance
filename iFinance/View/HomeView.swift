@@ -10,10 +10,15 @@ import SwiftUI
 struct HomeView: View {
     @State var value:String = ""
     @State private var selectedIdx = 0
-    @State private var options = ["Banco Inter", "Nubank", "Itau", "Nubank", "Itau"]
+    @State private var options = [
+        "Inter", "Nubank", "Itau",
+        "C6", "Next", "Caixa",
+        "Bradesco", "Sicob", "Santander",
+        "Banco do Brasil"
+    ]
     
-    func placeOrder() { }
-    func adjustOrder() { }
+    func includeIncome() { }
+    func includeExpense() { }
     
     var body: some View {
         VStack(alignment: .center) {
@@ -64,13 +69,15 @@ struct HomeView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.all, 10.0)
             Spacer()
-            VStack(alignment: .center) {
-                Menu {
-                    Button("Entrada", action: placeOrder)
-                    Button("Gastos", action: adjustOrder)
-                } label: {
-                    Label("Incluir", systemImage: "square.and.arrow.up.fill")
-                        .font(.title2)
+            HStack(alignment: .center) {
+                VStack {
+                    Menu {
+                        Button("Entrada", action: includeIncome)
+                        Button("Gastos", action: includeExpense)
+                    } label: {
+                        Label("Incluir", systemImage: "square.and.arrow.up.fill")
+                            .font(.title2)
+                    }
                 }
             }
             Spacer()
