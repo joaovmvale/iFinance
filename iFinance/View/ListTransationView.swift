@@ -3,8 +3,6 @@ import SwiftUI
 struct ListTransationView: View {
     var body: some View {
         VStack{
-            Text("Controle Financeiro")
-            Spacer()
             List{
                 HStack{
                     Text("📈")
@@ -18,8 +16,8 @@ struct ListTransationView: View {
                 //    ExtractedView(id: i, description: viewModel.amount[i].description, amount: viewModel.amount[i].amount)
                // }
             }
-            Spacer()
         }
+        .navigationBarTitle("Transações Financeiras", displayMode: .inline)
     }
 }
 
@@ -35,12 +33,12 @@ struct ExtractedView: View {
     var description:String = ""
     var amount:Int = 0
     var body: some View {
-    HStack{
-        Text(String(id))
-        Spacer()
-        Text(description)
-        Spacer()
-        Text(String(amount))
-    }
+        HStack{
+            Text(String(id))
+            Spacer()
+            Text(description)
+            Spacer()
+            Text(String(amount))
+        }
     }
 }

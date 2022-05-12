@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		570340BC2823538300D1C3E4 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570340BB2823538300D1C3E4 /* DashboardView.swift */; };
 		570DC9C22824B40C00D8289F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 570DC9C12824B40C00D8289F /* SwiftUICharts */; };
-		572DB43228234F8700FF7B19 /* DumbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43128234F8700FF7B19 /* DumbModel.swift */; };
+		572DB43228234F8700FF7B19 /* TransactionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43128234F8700FF7B19 /* TransactionEntry.swift */; };
 		572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43328234FB500FF7B19 /* DumbViewModel.swift */; };
 		57725F88282C83B100FE972A /* ListTransationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57725F87282C83B100FE972A /* ListTransationView.swift */; };
 		57725F8A282C840400FE972A /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57725F89282C840400FE972A /* SQLiteDatabase.swift */; };
@@ -17,11 +17,12 @@
 		57950E3628231C6900713A8E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57950E3528231C6900713A8E /* HomeView.swift */; };
 		57950E3828231C6B00713A8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57950E3728231C6B00713A8E /* Assets.xcassets */; };
 		57950E3B28231C6B00713A8E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57950E3A28231C6B00713A8E /* Preview Assets.xcassets */; };
+		57F2B1DD282C85A200819444 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 57F2B1DC282C85A200819444 /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		570340BB2823538300D1C3E4 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		572DB43128234F8700FF7B19 /* DumbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbModel.swift; sourceTree = "<group>"; };
+		572DB43128234F8700FF7B19 /* TransactionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntry.swift; sourceTree = "<group>"; };
 		572DB43328234FB500FF7B19 /* DumbViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbViewModel.swift; sourceTree = "<group>"; };
 		57725F87282C83B100FE972A /* ListTransationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransationView.swift; sourceTree = "<group>"; };
 		57725F89282C840400FE972A /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F2B1DD282C85A200819444 /* SQLite in Frameworks */,
 				570DC9C22824B40C00D8289F /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,7 +49,7 @@
 		572DB42E28234DF000FF7B19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				572DB43128234F8700FF7B19 /* DumbModel.swift */,
+				572DB43128234F8700FF7B19 /* TransactionEntry.swift */,
 				57725F89282C840400FE972A /* SQLiteDatabase.swift */,
 			);
 			path = Model;
@@ -126,6 +128,7 @@
 			name = iFinance;
 			packageProductDependencies = (
 				570DC9C12824B40C00D8289F /* SwiftUICharts */,
+				57F2B1DC282C85A200819444 /* SQLite */,
 			);
 			productName = iFinance;
 			productReference = 57950E3028231C6900713A8E /* iFinance.app */;
@@ -157,6 +160,7 @@
 			mainGroup = 57950E2728231C6900713A8E;
 			packageReferences = (
 				570DC9C02824B40C00D8289F /* XCRemoteSwiftPackageReference "ChartView" */,
+				57F2B1DB282C85A200819444 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 57950E3128231C6900713A8E /* Products */;
 			projectDirPath = "";
@@ -186,7 +190,7 @@
 			files = (
 				57950E3628231C6900713A8E /* HomeView.swift in Sources */,
 				57725F88282C83B100FE972A /* ListTransationView.swift in Sources */,
-				572DB43228234F8700FF7B19 /* DumbModel.swift in Sources */,
+				572DB43228234F8700FF7B19 /* TransactionEntry.swift in Sources */,
 				570340BC2823538300D1C3E4 /* DashboardView.swift in Sources */,
 				572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */,
 				57950E3428231C6900713A8E /* iFinanceApp.swift in Sources */,
@@ -399,6 +403,14 @@
 				version = "2.0.0-beta.2";
 			};
 		};
+		57F2B1DB282C85A200819444 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -406,6 +418,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 570DC9C02824B40C00D8289F /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		57F2B1DC282C85A200819444 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57F2B1DB282C85A200819444 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -11,11 +11,13 @@ import SQLite
 class SQLiteDatabase{
     var db:Connection?
     
-    let table = Table("Score")
+    let table = Table("Transactions")
     
     let id = Expression<Int64>("id")
-    let name = Expression<String>("name")
-    let score = Expression<Int>("score")
+    let value = Expression<Float64>("value")
+    let account = Expression<String>("account")
+    let category = Expression<String>("category")
+    let description = Expression<String>("description")
     
     init(){
         do{
@@ -24,41 +26,39 @@ class SQLiteDatabase{
             try db?.run(table.create(ifNotExists: true){
                 t in
                 t.column(id,primaryKey: .autoincrement)
-                t.column(name)
-                t.column(score)
+                t.column(value)
+                t.column(account)
+                t.column(category)
+                t.column(description)
             })
         }catch{
             print(error)
         }
     }
-    func insertScoreEntry(scoreEntry:ScoreEntry) -> Bool{
-        guard let db = db else{
+    
+    func insertTransactionEntry(transactionEntry:TransactionEntry) -> Bool {
+        guard let db = db
+        else {
             return false
         }
-        do{
-            let rowId = try db.run(table.insert(
-                name <- scoreEntry.name,
-                score <- scoreEntry.score
-            ))
-            if rowId > 0{
+        
+        do {
+            let rowId = try db.run(
+                table.insert(
+                    value <- transactionEntry.value,
+                    account <- transactionEntry.account,
+                    category <- transactionEntry.category,
+                    description <- transactionEntry.description
+                )
+            )
+            
+            if rowId > 0 {
                 return true
             }
-        }catch{
+        } catch {
             print(error)
         }
+        
         return false
-    }
-    func getScoreEntries() -> [ScoreEntry]{
-        var scores = [ScoreEntry]()
-        if let db = db{
-            do{
-                for row in try db.prepare(table.select(name,score).order(score.desc)){
-                    scores.append(ScoreEntry(name: row[name], score: row[score]))
-                }
-            }catch{
-                print(error)
-            }
-        }
-        return scores
     }
 }

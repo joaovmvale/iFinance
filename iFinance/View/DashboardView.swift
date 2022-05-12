@@ -14,10 +14,6 @@ struct DashboardView: View {
     var outcomes: [Double] = [10, 5, 2, 6, 23, 3]
     var body: some View {
         VStack (alignment:.center, spacing: 25.0){
-            Text("Dashboard")
-                .font(.title)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
             HStack{
                 Image(systemName: "square.and.arrow.up.fill").font(.system(size: 25))
                     .foregroundColor(.green)
@@ -54,7 +50,10 @@ struct DashboardView: View {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color.gray, lineWidth: 0.5)
             )
-        }.padding(.all, 20).textFieldStyle(.roundedBorder)
+        }
+        .padding([.leading, .bottom, .trailing], 20)
+        .textFieldStyle(.roundedBorder)
+        .navigationBarTitle("Dashboard", displayMode: .inline)
     }
 }
 struct DashboardView_Previews: PreviewProvider {
