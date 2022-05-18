@@ -11,7 +11,10 @@ struct HomeView: View {
     @State var goToDashBoard = false
     @State var goToTransaction = false
     
-    @State var value:String = ""
+    @State private var showingAlertSuccess = false
+    @State private var showingAlertError = false
+    
+    @State var value = ""
     @State var accountIdx = 0
     @State var accountOptions = [
         "Inter", "Nubank", "Itau",
@@ -25,10 +28,50 @@ struct HomeView: View {
         "Roupas", "Saúde", "Transporte",
         "Viagens", "Cosméticos", "Casa"
     ]
-    @State var description:String = ""
+    @State var description: String = ""
     
-    func includeIncome() { }
-    func includeExpense() { }
+    var sqlite = SQLiteDatabase()
+    
+    func cleanFields() {
+        self.value = ""
+        self.description = ""
+    }
+    
+    func includeIncome() {
+        let result = sqlite.insertTransactionEntry(transactionEntry: TransactionEntry(
+            value: Float64(self.value) ?? 0.0,
+            account: self.accountOptions[accountIdx],
+            category: self.categoryOptions[categoryIdx],
+            description: self.description,
+            flow: 1
+        ))
+
+        if result{
+            self.showingAlertSuccess = true
+        }else{
+            self.showingAlertError = true
+        }
+        
+        cleanFields()
+    }
+    
+    func includeExpense() {
+        let result = sqlite.insertTransactionEntry(transactionEntry: TransactionEntry(
+            value: Float64(self.value) ?? 0.0,
+            account: self.accountOptions[accountIdx],
+            category: self.categoryOptions[categoryIdx],
+            description: self.description,
+            flow: 2
+        ))
+        
+        if result{
+            self.showingAlertSuccess = true
+        }else{
+            self.showingAlertError = true
+        }
+        
+        cleanFields()
+    }
     
     var body: some View {
         NavigationView {
@@ -49,6 +92,7 @@ struct HomeView: View {
                     VStack(alignment: .leading, spacing: 2.0) {
                         Text("Valor").fontWeight(.bold)
                         TextField("R$28.99", text:$value)
+                            .keyboardType(.decimalPad)
                     }
                     VStack(alignment: .leading, spacing: 2.0) {
                         Text("Conta").fontWeight(.bold)
@@ -104,8 +148,8 @@ struct HomeView: View {
                             .font(.largeTitle)
                     }
                     Menu {
-                        Button("Saída", action: includeIncome)
-                        Button("Entrada", action: includeExpense)
+                        Button("Saída", action: includeExpense)
+                        Button("Entrada", action: includeIncome)
                     } label: {
                         Label("", systemImage: "square.and.arrow.up.fill")
                             .font(.largeTitle)
@@ -120,13 +164,19 @@ struct HomeView: View {
                 Spacer()
                 NavigationLink(destination: DashboardView(), isActive: $goToDashBoard){
                 }
-                NavigationLink(destination: ListTransationView(), isActive: $goToTransaction){
+                NavigationLink(destination: ListTransactionView(), isActive: $goToTransaction){
                 }
             }
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
         }
+        .alert("Inserido com sucesso!", isPresented: $showingAlertSuccess) {
+                    Button("OK", role: .cancel) { }
+                }
+        .alert("ERRO INESPERADO CONTATE O ADMINISTRADOR DO SISTEMA!!!!", isPresented: $showingAlertError) {
+                    Button("OK", role: .cancel) { }
+                }
     }
 }
 

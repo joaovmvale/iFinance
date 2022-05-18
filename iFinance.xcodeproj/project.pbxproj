@@ -10,8 +10,7 @@
 		570340BC2823538300D1C3E4 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570340BB2823538300D1C3E4 /* DashboardView.swift */; };
 		570DC9C22824B40C00D8289F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 570DC9C12824B40C00D8289F /* SwiftUICharts */; };
 		572DB43228234F8700FF7B19 /* TransactionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43128234F8700FF7B19 /* TransactionEntry.swift */; };
-		572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572DB43328234FB500FF7B19 /* DumbViewModel.swift */; };
-		57725F88282C83B100FE972A /* ListTransationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57725F87282C83B100FE972A /* ListTransationView.swift */; };
+		57725F88282C83B100FE972A /* ListTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57725F87282C83B100FE972A /* ListTransactionView.swift */; };
 		57725F8A282C840400FE972A /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57725F89282C840400FE972A /* SQLiteDatabase.swift */; };
 		57950E3428231C6900713A8E /* iFinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57950E3328231C6900713A8E /* iFinanceApp.swift */; };
 		57950E3628231C6900713A8E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57950E3528231C6900713A8E /* HomeView.swift */; };
@@ -23,8 +22,7 @@
 /* Begin PBXFileReference section */
 		570340BB2823538300D1C3E4 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		572DB43128234F8700FF7B19 /* TransactionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntry.swift; sourceTree = "<group>"; };
-		572DB43328234FB500FF7B19 /* DumbViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumbViewModel.swift; sourceTree = "<group>"; };
-		57725F87282C83B100FE972A /* ListTransationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransationView.swift; sourceTree = "<group>"; };
+		57725F87282C83B100FE972A /* ListTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionView.swift; sourceTree = "<group>"; };
 		57725F89282C840400FE972A /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
 		57950E3028231C6900713A8E /* iFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57950E3328231C6900713A8E /* iFinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFinanceApp.swift; sourceTree = "<group>"; };
@@ -60,7 +58,7 @@
 			children = (
 				57950E3528231C6900713A8E /* HomeView.swift */,
 				570340BB2823538300D1C3E4 /* DashboardView.swift */,
-				57725F87282C83B100FE972A /* ListTransationView.swift */,
+				57725F87282C83B100FE972A /* ListTransactionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -68,7 +66,6 @@
 		572DB43028234E2400FF7B19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				572DB43328234FB500FF7B19 /* DumbViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -189,10 +186,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				57950E3628231C6900713A8E /* HomeView.swift in Sources */,
-				57725F88282C83B100FE972A /* ListTransationView.swift in Sources */,
+				57725F88282C83B100FE972A /* ListTransactionView.swift in Sources */,
 				572DB43228234F8700FF7B19 /* TransactionEntry.swift in Sources */,
 				570340BC2823538300D1C3E4 /* DashboardView.swift in Sources */,
-				572DB43428234FB500FF7B19 /* DumbViewModel.swift in Sources */,
 				57950E3428231C6900713A8E /* iFinanceApp.swift in Sources */,
 				57725F8A282C840400FE972A /* SQLiteDatabase.swift in Sources */,
 			);
@@ -320,6 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iFinance/Preview Content\"";
@@ -328,6 +325,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,6 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iFinance/Preview Content\"";
@@ -356,6 +355,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
