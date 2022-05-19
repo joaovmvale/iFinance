@@ -64,7 +64,11 @@ struct ExtractedView: View {
                     .frame(width: 60.0, height: 20.00, alignment: .center)
                     .fixedSize()
                 Spacer()
-                Text("R$\(String(format: "%.2f", value))")
+                Text(
+                    flow == 1
+                     ? "R$ \(String(format: "%.2f", value))"
+                     : "- R$ \(String(format: "%.2f", value))"
+                )
                     .frame(width: 90.0, height: 20.00, alignment: .trailing)
                     .fixedSize()
             }

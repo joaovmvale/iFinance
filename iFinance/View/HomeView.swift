@@ -180,6 +180,7 @@ struct HomeView: View {
                     }
                     Button {
                         goToDashBoard = true
+                        
                     } label: {
                         Label("", systemImage: "chart.pie.fill")
                             .font(.largeTitle)
