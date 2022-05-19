@@ -13,6 +13,7 @@ struct HomeView: View {
     
     @State private var showingAlertSuccess = false
     @State private var showingAlertError = false
+    @State private var showingEmptyValue = false
     
     @State var value = ""
     @State var accountIdx = 0
@@ -37,7 +38,26 @@ struct HomeView: View {
         self.description = ""
     }
     
+    func checkConstraints() -> Bool {
+        if (self.value == "") {
+            self.showingEmptyValue = true
+            
+            return true
+        }
+        else if (self.description == "") {
+            self.description = "Sem descrição"
+            
+            return false
+        }
+        
+        return false
+    }
+    
     func includeIncome() {
+        if checkConstraints() {
+            return
+        }
+        
         let result = sqlite.insertTransactionEntry(transactionEntry: TransactionEntry(
             value: Float64(self.value) ?? 0.0,
             account: self.accountOptions[accountIdx],
@@ -56,6 +76,10 @@ struct HomeView: View {
     }
     
     func includeExpense() {
+        if checkConstraints() {
+            return
+        }
+        
         let result = sqlite.insertTransactionEntry(transactionEntry: TransactionEntry(
             value: Float64(self.value) ?? 0.0,
             account: self.accountOptions[accountIdx],
@@ -172,6 +196,9 @@ struct HomeView: View {
             .navigationBarHidden(true)
         }
         .alert("Inserido com sucesso!", isPresented: $showingAlertSuccess) {
+                    Button("OK", role: .cancel) { }
+                }
+        .alert("Por favor, preencha o campo de valor.", isPresented: $showingEmptyValue) {
                     Button("OK", role: .cancel) { }
                 }
         .alert("ERRO INESPERADO CONTATE O ADMINISTRADOR DO SISTEMA!!!!", isPresented: $showingAlertError) {

@@ -19,30 +19,6 @@ struct ListTransactionView: View {
     var body: some View {
         VStack{
             List{
-                HStack(alignment: .center) {
-                    Image(systemName: "arrow.up.arrow.down.square")
-                        .font(.system(size: 25))
-                        .foregroundColor(.blue)
-                    Spacer()
-                    Image(systemName: "tray.and.arrow.down.fill")
-                        .font(.system(size: 25))
-                        .foregroundColor(.blue)
-                    Spacer()
-                    Image(systemName: "pencil")
-                        .font(.system(size: 25))
-                        .foregroundColor(.blue)
-                    Spacer()
-                    Image(systemName: "text.aligncenter")
-                        .font(.system(size: 25))
-                        .foregroundColor(.blue)
-                    Spacer()
-                    Image(systemName: "dollarsign.circle.fill")
-                        .font(.system(size: 25))
-                        .foregroundColor(.blue)
-                    Spacer()
-                }
-                    
-                
                 let transactions: [TransactionEntry] = getTransactionEntries()
                 
                 ForEach(transactions.indices, id: \.self){
@@ -66,13 +42,6 @@ struct ListTransactionView: View {
     }
 }
 
-
-struct ListTransactionView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListTransactionView()
-    }
-}
-
 struct ExtractedView: View {
     var value:Float64
     var account:String
@@ -81,20 +50,38 @@ struct ExtractedView: View {
     var flow:Int
     
     var body: some View {
-        HStack(alignment: .center) {
-            Text(flow == 1 ? "📈" : "📉")
-            Spacer()
-            Text(account)
-            Spacer()
-            Text(category)
-            Spacer()
-            Text(description)
-                .frame(maxWidth: 50)
-                .lineLimit(nil)
-                .fixedSize()
-            Spacer()
-            Text("R$\(String(format: "%.2f", value))")
+        VStack(alignment: .center) {
+            HStack(alignment: .center) {
+                Text(flow == 1 ? "📈" : "📉")
+                    .frame(width: 15.0, height: 20.00, alignment: .center)
+                    .fixedSize()
+                Spacer()
+                Text(account)
+                    .frame(width: 60.0, height: 20.00, alignment: .leading)
+                    .fixedSize()
+                Spacer()
+                Text(category)
+                    .frame(width: 60.0, height: 20.00, alignment: .center)
+                    .fixedSize()
+                Spacer()
+                Text("R$\(String(format: "%.2f", value))")
+                    .frame(width: 90.0, height: 20.00, alignment: .trailing)
+                    .fixedSize()
+            }
+            
+            HStack {
+                Text(description)
+                    .fontWeight(.bold)
+                    .frame(width: 225.0, height: 30.00, alignment: .center)
+                    .fixedSize()
+            }
         }
             .font(.system(size: 10))
+    }
+}
+
+struct ListTransactionView_Previews: PreviewProvider {
+    static var previews: some View {
+        ListTransactionView()
     }
 }

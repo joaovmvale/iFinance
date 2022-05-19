@@ -90,7 +90,7 @@ class SQLiteDatabase{
             do{
                 for row in try db.prepare(
                     table.select(id, value, flow)
-                        .order(id.desc)
+                        .order(id.asc)
                         .where(flow == 1)
                 ){
                     incomeList.append(row[value])
@@ -111,7 +111,7 @@ class SQLiteDatabase{
             do{
                 for row in try db.prepare(
                     table.select(id, value, flow)
-                        .order(id.desc)
+                        .order(id.asc)
                         .where(flow == 2)
                 ){
                     expenseList.append(row[value])

@@ -11,26 +11,47 @@ import SwiftUICharts
 struct DashboardView: View {
     var sqlite = SQLiteDatabase()
     
-    var body: some View {
-        let incomesList: [Double] = sqlite.getIncomeList()
-        let expenseList: [Double] = sqlite.getExpenseList()
+    let incomesList: [Double]
+    let expenseList: [Double]
+    
+    @State private var showingEmptyListWarning = false
+    
+    init(){
+        incomesList = sqlite.getIncomeList()
+        expenseList = sqlite.getExpenseList()
         
+        if (!hasMultipleValues(_list: incomesList) || !hasMultipleValues(_list: expenseList)) {
+            showingEmptyListWarning = true
+        }
+    }
+    
+    func hasMultipleValues(_list: [Double]) -> Bool {
+        if (_list.count == 1) {
+            return false
+        }
+        
+        return true
+    }
+    
+    var body: some View {
         let incomeSum = incomesList.reduce(0, +)
         let expenseSum = expenseList.reduce(0, +)
         let delta = incomeSum - expenseSum
         
+        
+        
         VStack (alignment:.center, spacing: 25.0){
             HStack{
-                Image(systemName: "square.and.arrow.up.fill").font(.system(size: 25))
+                Image(systemName: "square.and.arrow.up.fill").font(.system(size: 16))
                     .foregroundColor(.green)
                 Text("R$\(String(format: "%.2f", incomeSum))")
-                Image(systemName: "square.and.arrow.down.fill").font(.system(size: 25))
+                Image(systemName: "square.and.arrow.down.fill").font(.system(size: 16))
                     .foregroundColor(.red)
                 Text("R$\(String(format: "%.2f", expenseSum))")
             }
             
             HStack{
-                Image(systemName: "dollarsign.circle.fill").font(.system(size: 25))
+                Image(systemName: "dollarsign.circle.fill").font(.system(size: 16))
                     .foregroundColor(.blue)
                 Text("R$\(String(format: "%.2f", delta))")
             }
@@ -70,6 +91,9 @@ struct DashboardView: View {
         .padding([.leading, .bottom, .trailing], 20)
         .textFieldStyle(.roundedBorder)
         .navigationBarTitle("Dashboard", displayMode: .inline)
+        .alert("Insira mais transações para popular os gráficos.", isPresented: $showingEmptyListWarning) {
+                    Button("OK", role: .cancel) { }
+                }
     }
 }
 struct DashboardView_Previews: PreviewProvider {
